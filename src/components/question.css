@@ -1,0 +1,15 @@
+.question{
+	background-color: #0d98ba;
+	border: 20px solid brown;
+	padding: 20px;
+	font-size: 12px;
+	padding-left: 30px;
+	text-align: left;
+}
+
+.boxes {
+	margin: 20px auto;
+	padding: 10px;
+	display: inline-block;
+	border: 1px solid black;
+}
