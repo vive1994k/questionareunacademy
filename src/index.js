@@ -2,24 +2,24 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
-import degreeCources from './reducers/degreeCources'
+import reducers from './reducers/index'
 import App from './App'
 import thunkMiddleware from 'redux-thunk'
 import { createLogger } from 'redux-logger'
 import './index.css'
-import { fetchData } from './actions/fetchData'
+// import { fetchData } from './actions/fetchData'
 
 const loggerMiddleware = createLogger()
 
 let store = createStore(
-		degreeCources,
+		reducers,
 		applyMiddleware(
 			thunkMiddleware,
 			loggerMiddleware
 		)
 	)
 
-store.dispatch(fetchData())
+// store.dispatch(fetchData())
 
 render(
   <Provider store={store}>

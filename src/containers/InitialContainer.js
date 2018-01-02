@@ -1,27 +1,33 @@
 import { connect } from 'react-redux'
 import Question from '../components/question'
-import { findKey as _findKey } from 'lodash'
-import { onSkipClickFn } from '../actions/utilities'
+import { onSkipClickFn, setSearchedValue } from '../actions/utilities'
+import { fetchData, fetchAuthorData } from '../actions/fetchData'
 
 const mapStateToProps = state => {
-  console.log('container', state)
-  let currentQuestionKey = _findKey(state.questions, function (thisQuestion, index) {
-    return parseInt(state.currentQuestion) === parseInt(index)
-  })
-
-  let totalQuestions = state.questions.length
-
+  console.log('InitialContainer', state);
   return {
-    currentQuestion: state.questions[currentQuestionKey],
-    totalQuestions: totalQuestions,
-    currentQuestionNumber: (state.currentQuestion + 1)
+    hits: state.searchedList.hits||[],
+    page: state.searchedList.page,
+    searchedValue: state.misc.searchedValue || '',
+    authors: state.authorData.authors || []
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    onSkipClick: (currentQues, NextQues) => {
-      dispatch(onSkipClickFn(currentQues, NextQues))
+    searchHandler: (searchValue) => {
+      let url = 'http://hn.algolia.com/api/v1/search.json?query=' + searchValue;
+      dispatch(fetchData(url))
+      dispatch(setSearchedValue(searchValue))
+    },
+    nextClickHandler: (page, searchValue='') => {
+      let url = 'http://hn.algolia.com/api/v1/search.json?query=' + searchValue + '&page=' + page;
+      dispatch(fetchData(url))
+    },
+    getAuthorData: (userName) => {
+      let url = 'https://hn.algolia.com/api/v1/users/' + userName;
+
+      dispatch(fetchAuthorData(url))
     }
   }
 }

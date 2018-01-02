@@ -1,10 +1,9 @@
-
-export function onSkipClickFn (currentQuestion, nextQuestion) {
+export function setSearchedValue (searchedValue) {
+	debugger;
   return {
-    type: 'SKIP_BUTTON_CLICKED',
+    type: 'SET_SEARCHED_VALUE',
     data: {
-      nextQuestion: nextQuestion,
-      userAnwered: 'S'
+      searchedValue: searchedValue
     }
   }
 }

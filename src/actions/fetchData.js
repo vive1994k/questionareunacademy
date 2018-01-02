@@ -1,16 +1,31 @@
 export const fetchDataDone = data => {
   return {
     type: 'FETCH_DATA_DONE',
+    data: data
+  }
+}
+
+export const fetchAuthorDataDone = data => {
+  return {
+    type: 'FETCH_AUTHOR_DATA_DONE',
     data: {
-    	questions: data
+      authors: data
     }
   }
 }
 
-export function fetchData () {
+export function fetchData (url) {
   return dispatch => {
-    return fetch(`https://cdn.rawgit.com/santosh-suresh/39e58e451d724574f3cb/raw/784d83b460d6c0150e338c34713f3a1c2371e20a/assignment.json`)
+    return fetch(url)
       .then(response => response.json())
       .then(json => dispatch(fetchDataDone(json)))
+  }
+}
+
+export function fetchAuthorData (url) {
+  return dispatch => {
+    return fetch(url)
+      .then(response => response.json())
+      .then(json => dispatch(fetchAuthorDataDone(json)))
   }
 }

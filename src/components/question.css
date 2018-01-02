@@ -1,6 +1,5 @@
 .question{
-	background-color: #0d98ba;
-	border: 20px solid brown;
+	background-color: white;
 	padding: 20px;
 	font-size: 12px;
 	padding-left: 30px;
@@ -12,4 +11,47 @@
 	padding: 10px;
 	display: inline-block;
 	border: 1px solid black;
+}
+
+.queryList {
+	margin: 30px;
+	text-align: left;
+	width: 60%;
+}
+
+.table-heading {
+	padding: 12px;
+	font-size: 20px;
+	text-align: middle;
+	width: 50%;
+}
+
+.left {
+	border-right: 1px solid black;
+}
+
+a {
+	font-size: 12px;
+	color: blue;
+}
+
+table {
+	border: 1px solid black;
+}
+
+td {
+	padding: 5px;
+}
+
+button {
+	padding: 3px;
+	margin: 10px;
+	font-weight: bold;
+	font-size: 15px;
+	width: 100px;
+	display: inline-block;
+}
+
+.hide-display {
+	display: none
 }
