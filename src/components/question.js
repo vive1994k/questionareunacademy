@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import './question.css'
-import { values as _values} from 'lodash'
 import Search from './search'
 import QueryList from './queryList'
 

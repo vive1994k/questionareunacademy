@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import Question from '../components/question'
-import { onSkipClickFn, setSearchedValue } from '../actions/utilities'
+import { setSearchedValue } from '../actions/utilities'
 import { fetchData, fetchAuthorData } from '../actions/fetchData'
 
 const mapStateToProps = state => {

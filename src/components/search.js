@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import './question.css'
-import { values as _values} from 'lodash'
 
 class Search extends Component {
   constructor(props){

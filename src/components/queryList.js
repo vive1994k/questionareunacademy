@@ -19,7 +19,8 @@ class QueryList extends Component {
   	let page = parseInt(this.props.page);
   	let _self = this;
   	let tableRows = _map(this.props.hits, (thisHit)=>{
-  		let title,url, author, submission_count=setTimeout(_self.getAuthorSubmissionCount(thisHit.author), 3000);
+  	  let title,url, author, 
+        submission_count = setTimeout(_self.getAuthorSubmissionCount(thisHit.author), 3000);
 
   		if(thisHit.title){
   			title = thisHit.title;
